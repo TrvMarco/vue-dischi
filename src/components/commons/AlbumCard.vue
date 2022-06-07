@@ -1,15 +1,18 @@
 <template>
   <div class="album_card text-center">
-      <img class="img-fluid" src="http://via.placeholder.com/700x700" alt="Non va">
-      <h2 class="text-white text-uppercase">New Jersey</h2>
-      <h5>Bon Jovi</h5>
-      <small>1988</small>
+      <img class="img-fluid" :src="album.poster" :alt="album.author">
+      <h2 class="text-white text-uppercase">{{album.title}}</h2>
+      <h5>{{album.author}}</h5>
+      <small>{{album.year}}</small>
   </div>
 </template>
 
 <script>
 export default {
-    name:'AlbumCard'
+    name:'AlbumCard',
+    props: {
+        album: Object,
+    } 
 }
 </script>
 
