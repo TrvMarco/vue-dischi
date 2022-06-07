@@ -1,8 +1,6 @@
 <template>
-  <header>
-    <div class="container-fluid">
-        <SpotifyLogo/>
-    </div>
+  <header class="container-fluid">
+    <SpotifyLogo id="logo"/>
   </header>
 </template>
 
@@ -18,7 +16,13 @@ export default {
 
 <style lang="scss" scoped>
     header{
-        height: 75px;
+        height: 4.6875rem;
         background-color: var(--primary-color);
+        display: flex;
+        align-items: center;
+    }
+
+    #logo{
+        height: 3.75rem;
     }
 </style>

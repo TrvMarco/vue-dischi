@@ -9,5 +9,7 @@ export default {
 </script>
 
 <style lang="scss">
-    
+    img{
+        padding: .3125rem 0;
+    }
 </style>
