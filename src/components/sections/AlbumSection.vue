@@ -1,8 +1,11 @@
 <template>
   <section>
       <div class="container">
-          <div class="row">
+          <div class="row" v-if="albums.length == 10">
             <AlbumCard class="col-12 col-md-4 col-lg-2" v-for="album in albums" :album="album" :key="album"/>
+          </div>
+          <div v-else>
+            <SpinnerLoading/>
           </div>
       </div>
   </section>
@@ -10,12 +13,14 @@
 
 <script>
 import AlbumCard from '../../components/commons/AlbumCard'
+import SpinnerLoading from '../../components/commons/SpinnerLoading'
 import axios from 'axios'
 
 export default {
     name: 'AlbumSection',
     components:{
         AlbumCard,
+        SpinnerLoading,
     },
     data(){
         return{
