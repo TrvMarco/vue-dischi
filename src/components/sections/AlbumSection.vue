@@ -1,7 +1,7 @@
 <template>
   <section>
       <div class="container">
-          <SelectBar/>
+          <SelectBar @sel="selectedGenr" />
           <div class="row row-cols-lg-5" v-if="albums.length == 10">
             <AlbumCard class="col-12 col-md-4 col-lg" v-for="(album,index) in albums" :album="album" :key="index"/>
           </div>
@@ -28,6 +28,7 @@ export default {
     data(){
         return{
             albums: [],
+            searchedGenre: ' ',
         }
     },
     created(){
@@ -40,13 +41,14 @@ export default {
         })
     },
     methods:{
-        
+        selectedGenr(genere){
+            this.searchedGenre = genere;
+        }
     },
     computed:{
         searchFilter(){
-            return this.albums.filter((obj)=>{
-                console.log(obj)
-            })
+            return this.albums.filter((obj)=> obj.genre.includes(this.searchedGenre))
+            // this.albums.filter((obj)=> obj.genre.includes(this.searchedGenre));
         }
     }
 

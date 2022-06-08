@@ -1,5 +1,5 @@
 <template>
-  <select class="form-select mb-3" aria-label="Default select example" v-model="selected">
+  <select class="form-select mb-3" aria-label="Default select example" v-model="selectedGenr" @change="$emit('sel', selectedGenr)">
   <option disabled value="">Seleziona un genere</option>
   <option value="Rock">Rock</option>
   <option value="Pop">Pop</option>
@@ -13,7 +13,7 @@ export default {
     name: 'SelectBar',
     data(){
         return{
-            selected: '',
+            selectedGenr: '',
         }
     }
 }
