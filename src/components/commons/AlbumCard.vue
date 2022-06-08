@@ -21,7 +21,7 @@ export default {
         background-color: var(--primary-color);
         padding: .625rem;
         padding-bottom: 1.875rem;
-
+        height: 100%;
         h2{
             font-size: 1.25rem;
         }
