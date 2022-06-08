@@ -1,8 +1,9 @@
 <template>
   <section>
       <div class="container">
-          <div class="row" v-if="albums.length == 10">
-            <AlbumCard class="col-12 col-md-4 col-lg-2" v-for="album in albums" :album="album" :key="album"/>
+          <SelectBar/>
+          <div class="row row-cols-lg-5" v-if="albums.length == 10">
+            <AlbumCard class="col-12 col-md-4 col-lg" v-for="(album,index) in albums" :album="album" :key="index"/>
           </div>
           <div v-else>
             <SpinnerLoading/>
@@ -14,6 +15,7 @@
 <script>
 import AlbumCard from '../../components/commons/AlbumCard'
 import SpinnerLoading from '../../components/commons/SpinnerLoading'
+import SelectBar from '../../components/commons/SelectBar'
 import axios from 'axios'
 
 export default {
@@ -21,6 +23,7 @@ export default {
     components:{
         AlbumCard,
         SpinnerLoading,
+        SelectBar,
     },
     data(){
         return{
@@ -36,12 +39,19 @@ export default {
             console.log(error);
         })
     },
+    methods:{
+        
+    },
+    computed:{
+        searchFilter(){
+            return this.albums.filter((obj)=>{
+                console.log(obj)
+            })
+        }
+    }
+
 }
 </script>
 
 <style lang="scss" scoped>
-    .row{
-        gap: 1.25rem;
-        justify-content: space-around;
-    }
 </style>
